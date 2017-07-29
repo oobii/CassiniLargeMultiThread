@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     // if we set or re-set URL we might want to fetch() image if we are on screen
     var imageURL: URL? {
@@ -64,9 +64,17 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             
+            // Step 26:
+            scrollView.minimumZoomScale = 0.03
+            scrollView.maximumZoomScale = 2
+            
+            //Step 27: for zooming we need to use Delegate
+            scrollView.delegate = self
+            
             //Step 24: we have to set it otherwise we have it at default (0,0)
             scrollView.contentSize = imageView.frame.size
-            // Step22: when the scroll get set we add imageView to scrollView as a subview
+            
+            // Step 22: when the scroll get set we add imageView to scrollView as a subview
             scrollView.addSubview(imageView)
         }
     }
@@ -91,4 +99,10 @@ class ImageViewController: UIViewController {
             scrollView?.contentSize = imageView.frame.size
         }
     }
+    
+    // Step 27: using without class extention , see next example with class extention
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
 }
