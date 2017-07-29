@@ -11,19 +11,26 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-
     
+    // if we set or re-set URL we might want to fetch() image if we are on screen
     var imageURL: URL? {
         didSet {
             // first we clear the previous image
             image = nil
-            fetchURL()
+            
+            // Step21: if we donr have windows we are not on screen but if we have view.window then we are on screen
+            // and fetch right away
+            // compare two palaced Step20 and 21 for fetch()
+            // it's done to minimize unnessesary fetching from the Internet and waste user's cellular data plan
+            // if we use tab bars
+            
+            if view.window != nil {
+                fetchURL()
+            }
         }
     }
-  
     
     private func fetchURL() {
-        
         // we use let-url because imgeURL is Optional
         if let url = imageURL {
             let urlContent = try? Data(contentsOf: url)
@@ -33,43 +40,37 @@ class ImageViewController: UIViewController {
                 // we will automatically do image-setter below
             }
         }
-    
     }
     
-    
     // this is a good place to add subviews , we already loaded our view
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imageView)
-
         imageURL = DemoURL.stanford
-        
-   // after that assigment property observer for imageURL will be called
-        
+        // after that assigment property observer for imageURL will be called
     }
     
+    // Step20: we add this func for the case when our imageView is not currently on screen but  will appear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(<#T##animated: Bool##Bool#>)
+        if image == nil {
+            fetchURL()
+        }
+    }
     
     private var imageView = UIImageView()
-    
     
     // image views dont have to have image , they can be empty
     // that's why we use Optional
     // my image can be nil
     private var image: UIImage? {
-        
         get {
             return imageView.image
-            
         }
-        
         set {
             imageView.image = newValue
             imageView.sizeToFit()
-        
+        }
     }
-    
-    
-  }
-    
 }
