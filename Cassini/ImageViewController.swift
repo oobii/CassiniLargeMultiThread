@@ -46,7 +46,9 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(imageView)
+        // Step23: commenting/deleting this one below , because we added imageView as a subview to scrollView
+        // view.addSubview(imageView)
+        
         imageURL = DemoURL.stanford
         // after that assigment property observer for imageURL will be called
     }
@@ -58,6 +60,17 @@ class ImageViewController: UIViewController {
             fetchURL()
         }
     }
+    
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            
+            //Step 24: we have to set it otherwise we have it at default (0,0)
+            scrollView.contentSize = imageView.frame.size
+            // Step22: when the scroll get set we add imageView to scrollView as a subview
+            scrollView.addSubview(imageView)
+        }
+    }
+    
     
     private var imageView = UIImageView()
     
@@ -71,6 +84,11 @@ class ImageViewController: UIViewController {
         set {
             imageView.image = newValue
             imageView.sizeToFit()
+            
+            // Step25: we should re-set contentSize again when we set our imageView
+            // and there might be a case when scrollView is nil and we need to do Optional chaining
+            // To remember: any time we are accessing outlets that can be called during prepare, we have to use Optinal chaning
+            scrollView?.contentSize = imageView.frame.size
         }
     }
 }
