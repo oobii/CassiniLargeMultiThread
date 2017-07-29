@@ -10,6 +10,8 @@
 
 import UIKit
 
+    // MARK: Model
+
 class ImageViewController: UIViewController  {
     
     // if we set or re-set URL we might want to fetch() image if we are on screen
@@ -30,6 +32,8 @@ class ImageViewController: UIViewController  {
         }
     }
     
+    // MARK: Private Implementation
+    
     private func fetchURL() {
         // we use let-url because imgeURL is Optional
         if let url = imageURL {
@@ -41,6 +45,9 @@ class ImageViewController: UIViewController  {
             }
         }
     }
+    
+    
+    // MARK: View Controller Lifecycle
     
     // this is a good place to add subviews , we already loaded our view
     
@@ -60,6 +67,8 @@ class ImageViewController: UIViewController  {
             fetchURL()
         }
     }
+    
+    // MARK: User Interface 
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
