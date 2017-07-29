@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController, UIScrollViewDelegate {
+class ImageViewController: UIViewController  {
     
     // if we set or re-set URL we might want to fetch() image if we are on screen
     var imageURL: URL? {
@@ -79,8 +79,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    private var imageView = UIImageView()
+  // Step 28: need to make it fileprivate for viewForZooming to see it
+    fileprivate var imageView = UIImageView()
     
     // image views dont have to have image , they can be empty
     // that's why we use Optional
@@ -100,9 +100,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+}
+
+extension ImageViewController: UIScrollViewDelegate {
+    
     // Step 27: using without class extention , see next example with class extention
+    // press "alt-pinch" on track pad for zooming in and out
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
 }
+
+
