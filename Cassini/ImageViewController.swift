@@ -52,8 +52,8 @@ class ImageViewController: UIViewController {
     }
     
     // Step20: we add this func for the case when our imageView is not currently on screen but  will appear
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(<#T##animated: Bool##Bool#>)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if image == nil {
             fetchURL()
         }
