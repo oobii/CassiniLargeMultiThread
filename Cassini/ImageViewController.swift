@@ -8,6 +8,9 @@
 
 // This is a reusable MVC
 
+// All and only UI activity is happening on the single Main queue
+// All other on Global concurrent queues (multiple)
+
 import UIKit
 
     // MARK: Model
@@ -56,7 +59,7 @@ class ImageViewController: UIViewController  {
         // Step23: commenting/deleting this one below , because we added imageView as a subview to scrollView
         // view.addSubview(imageView)
         
-        imageURL = DemoURL.stanford
+        // old code // imageURL = DemoURL.stanford
         // after that assigment property observer for imageURL will be called
     }
     

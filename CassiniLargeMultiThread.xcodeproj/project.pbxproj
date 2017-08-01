@@ -13,10 +13,11 @@
 		71AE9F281F29354300A02ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AE9F261F29354300A02ADD /* LaunchScreen.storyboard */; };
 		71AE9F301F2935D700A02ADD /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE9F2F1F2935D700A02ADD /* DemoURL.swift */; };
 		71F19CDC1F2A3A6A00B7CB10 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F19CDB1F2A3A6A00B7CB10 /* ImageViewController.swift */; };
+		71F19CDE1F30C78800B7CB10 /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F19CDD1F30C78800B7CB10 /* CassiniViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71AE9F1A1F29354300A02ADD /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AE9F1A1F29354300A02ADD /* CassiniLargeMultiThread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CassiniLargeMultiThread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AE9F1D1F29354300A02ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71AE9F221F29354300A02ADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71AE9F241F29354300A02ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -24,6 +25,7 @@
 		71AE9F291F29354300A02ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71AE9F2F1F2935D700A02ADD /* DemoURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
 		71F19CDB1F2A3A6A00B7CB10 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		71F19CDD1F30C78800B7CB10 /* CassiniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 		71AE9F1B1F29354300A02ADD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71AE9F1A1F29354300A02ADD /* Cassini.app */,
+				71AE9F1A1F29354300A02ADD /* CassiniLargeMultiThread.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +61,7 @@
 				71AE9F1D1F29354300A02ADD /* AppDelegate.swift */,
 				71AE9F2F1F2935D700A02ADD /* DemoURL.swift */,
 				71AE9F211F29354300A02ADD /* Main.storyboard */,
+				71F19CDD1F30C78800B7CB10 /* CassiniViewController.swift */,
 				71F19CDB1F2A3A6A00B7CB10 /* ImageViewController.swift */,
 				71AE9F241F29354300A02ADD /* Assets.xcassets */,
 				71AE9F261F29354300A02ADD /* LaunchScreen.storyboard */,
@@ -70,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71AE9F191F29354300A02ADD /* Cassini */ = {
+		71AE9F191F29354300A02ADD /* CassiniLargeMultiThread */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71AE9F2C1F29354300A02ADD /* Build configuration list for PBXNativeTarget "Cassini" */;
+			buildConfigurationList = 71AE9F2C1F29354300A02ADD /* Build configuration list for PBXNativeTarget "CassiniLargeMultiThread" */;
 			buildPhases = (
 				71AE9F161F29354300A02ADD /* Sources */,
 				71AE9F171F29354300A02ADD /* Frameworks */,
@@ -82,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = Cassini;
+			name = CassiniLargeMultiThread;
 			productName = Cassini;
-			productReference = 71AE9F1A1F29354300A02ADD /* Cassini.app */;
+			productReference = 71AE9F1A1F29354300A02ADD /* CassiniLargeMultiThread.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71AE9F151F29354300A02ADD /* Build configuration list for PBXProject "Cassini" */;
+			buildConfigurationList = 71AE9F151F29354300A02ADD /* Build configuration list for PBXProject "CassiniLargeMultiThread" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71AE9F191F29354300A02ADD /* Cassini */,
+				71AE9F191F29354300A02ADD /* CassiniLargeMultiThread */,
 			);
 		};
 /* End PBXProject section */
@@ -143,6 +146,7 @@
 				71AE9F1E1F29354300A02ADD /* AppDelegate.swift in Sources */,
 				71F19CDC1F2A3A6A00B7CB10 /* ImageViewController.swift in Sources */,
 				71AE9F301F2935D700A02ADD /* DemoURL.swift in Sources */,
+				71F19CDE1F30C78800B7CB10 /* CassiniViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +272,7 @@
 				DEVELOPMENT_TEAM = 7YPNN524J3;
 				INFOPLIST_FILE = Cassini/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Cassini;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CassiniLargeMultiThread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -281,7 +285,7 @@
 				DEVELOPMENT_TEAM = 7YPNN524J3;
 				INFOPLIST_FILE = Cassini/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Cassini;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CassiniLargeMultiThread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -290,7 +294,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71AE9F151F29354300A02ADD /* Build configuration list for PBXProject "Cassini" */ = {
+		71AE9F151F29354300A02ADD /* Build configuration list for PBXProject "CassiniLargeMultiThread" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71AE9F2A1F29354300A02ADD /* Debug */,
@@ -299,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71AE9F2C1F29354300A02ADD /* Build configuration list for PBXNativeTarget "Cassini" */ = {
+		71AE9F2C1F29354300A02ADD /* Build configuration list for PBXNativeTarget "CassiniLargeMultiThread" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71AE9F2D1F29354300A02ADD /* Debug */,
