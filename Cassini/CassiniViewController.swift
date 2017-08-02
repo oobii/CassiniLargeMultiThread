@@ -35,6 +35,7 @@ class CassiniViewController: UIViewController {
         
         if let navigVC = segue.destination as? UINavigationController {
             destVC = navigVC.viewControllers[0] as? ImageViewController
+            destVC?.title = (sender as? UIButton)?.currentTitle
         }
         else {
             destVC = segue.destination as? ImageViewController
@@ -43,6 +44,12 @@ class CassiniViewController: UIViewController {
         let identifier = segue.identifier ?? ""
         destVC?.imageURL = DemoURL.NASA[identifier]
     }
-    
 }
 
+// Not used yet extention to simplify the detection if we are in the NavigationController
+extension UIViewController {
+    var contents: UIViewController {
+        return  (self as? UINavigationController)?.visibleViewController ?? self
+        
+    }
+}
