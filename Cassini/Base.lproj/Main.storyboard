@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QVd-DE-Jrk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EaG-fq-HC9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Split View Controller-->
+        <scene sceneID="Lv5-h4-anl">
+            <objects>
+                <splitViewController id="EaG-fq-HC9" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="72p-Zn-z8V" kind="relationship" relationship="masterViewController" id="45i-hv-4Z1"/>
+                        <segue destination="RJJ-DZ-Ohu" kind="relationship" relationship="detailViewController" id="tfL-QS-MLh"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chQ-Is-Dix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1330" y="311"/>
+        </scene>
         <!--Cassini View Controller-->
         <scene sceneID="ZHV-a5-p3G">
             <objects>
@@ -29,7 +42,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Earth"/>
                                         <connections>
-                                            <segue destination="poU-zg-EjD" kind="showDetail" identifier="Earth" id="gPq-Z5-McF"/>
+                                            <segue destination="RJJ-DZ-Ohu" kind="showDetail" identifier="Earth" id="gPq-Z5-McF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-he-2kO">
@@ -37,7 +50,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Cassini"/>
                                         <connections>
-                                            <segue destination="poU-zg-EjD" kind="showDetail" identifier="Cassini" id="BUK-5k-uCj"/>
+                                            <segue destination="RJJ-DZ-Ohu" kind="showDetail" identifier="Cassini" id="BUK-5k-uCj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-Tu-ZJT">
@@ -45,7 +58,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Saturn"/>
                                         <connections>
-                                            <segue destination="poU-zg-EjD" kind="showDetail" identifier="Saturn" id="mPP-PV-7wI"/>
+                                            <segue destination="RJJ-DZ-Ohu" kind="showDetail" identifier="Saturn" id="mPP-PV-7wI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -57,10 +70,11 @@
                             <constraint firstItem="ah5-Ff-5Kb" firstAttribute="centerY" secondItem="uss-cD-6uM" secondAttribute="centerY" id="tpH-cU-vjv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="I39-24-Omq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xc4-G4-v9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="74.212893553223395"/>
+            <point key="canvasLocation" x="250" y="-541"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="GR6-0b-GoQ">
@@ -86,16 +100,53 @@
                             <constraint firstItem="svo-tL-O9C" firstAttribute="top" secondItem="ftT-hf-oPt" secondAttribute="top" id="hU8-nI-gpi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sw8-4j-AcP"/>
                     <connections>
                         <outlet property="scrollView" destination="svo-tL-O9C" id="ONx-4V-JV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDF-QX-cyV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="76"/>
+            <point key="canvasLocation" x="1300" y="375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AY8-KR-6Wm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="72p-Zn-z8V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ADh-NO-OUf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QVd-DE-Jrk" kind="relationship" relationship="rootViewController" id="iQX-nm-DGL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7w7-fo-Xke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-670" y="-609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oI1-LU-DXY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RJJ-DZ-Ohu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3T-gw-66q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="poU-zg-EjD" kind="relationship" relationship="rootViewController" id="GmU-hY-C0f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30t-Vu-gxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="375"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mPP-PV-7wI"/>
+        <segue reference="tfL-QS-MLh"/>
     </inferredMetricsTieBreakers>
 </document>

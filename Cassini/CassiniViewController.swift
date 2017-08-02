@@ -9,7 +9,8 @@
 import UIKit
 
 class CassiniViewController: UIViewController {
-    
+  
+    /*
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +22,7 @@ class CassiniViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+  */  
     
     // MARK: - Navigation
     
@@ -29,13 +30,18 @@ class CassiniViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let destVC = segue.destination as? ImageViewController {
-            if let identifier = segue.identifier {
-                destVC.imageURL = DemoURL.NASA[identifier]
-            }
-            
-            
+        
+        var destVC: ImageViewController?
+        
+        if let navigVC = segue.destination as? UINavigationController {
+            destVC = navigVC.viewControllers[0] as? ImageViewController
         }
+        else {
+            destVC = segue.destination as? ImageViewController
+        }
+        
+        let identifier = segue.identifier ?? ""
+        destVC?.imageURL = DemoURL.NASA[identifier]
     }
     
 }
