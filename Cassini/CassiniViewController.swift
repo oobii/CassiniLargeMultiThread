@@ -9,20 +9,6 @@
 import UIKit
 
 class CassiniViewController: UIViewController {
-  
-    /*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-  */  
     
     // MARK: - Navigation
     
@@ -31,22 +17,17 @@ class CassiniViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        var destVC: ImageViewController?
-        
-        if let navigVC = segue.destination as? UINavigationController {
-            destVC = navigVC.viewControllers[0] as? ImageViewController
-            destVC?.title = (sender as? UIButton)?.currentTitle
-        }
-        else {
-            destVC = segue.destination as? ImageViewController
+       // using contents property added via extention of UIViewController 
+        if let imageVC = segue.destination.contents as? ImageViewController {
+            imageVC.imageURL = DemoURL.NASA[segue.identifier ?? ""]
+            imageVC.title = (sender as? UIButton)?.currentTitle
         }
         
-        let identifier = segue.identifier ?? ""
-        destVC?.imageURL = DemoURL.NASA[identifier]
+        
     }
 }
 
-// Not used yet extention to simplify the detection if we are in the NavigationController
+// To simplify detection that VC is embedded into NavigationController
 extension UIViewController {
     var contents: UIViewController {
         return  (self as? UINavigationController)?.visibleViewController ?? self
