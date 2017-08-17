@@ -40,11 +40,22 @@ class ImageViewController: UIViewController  {
     private func fetchURL() {
         // we use let-url because imgeURL is Optional
         if let url = imageURL {
-            let urlContent = try? Data(contentsOf: url)
-            // we are using let-imageData because urlContent is Data?
-            if let  imageData = urlContent {
-                image = UIImage(data: imageData)
-                // we will automatically do image-setter below
+            
+            // [weak self] is to break cycle, elf (ImageView Controller is captured inside the closure so
+            // it need to be weak
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContent = try? Data(contentsOf: url)
+                // we are using let-imageData because urlContent is Data?
+                // url == self?.imageURL to check that we are not coming with new self?.imageURL while url is captured by closure 
+                if let  imageData = urlContent, url == self?.imageURL {
+                    
+                    // UI has to be on the main queue
+                    DispatchQueue.main.async {
+                        self?.image = UIImage(data: imageData)
+                        // we will automatically do image-setter below
+                    }
+                }
+                
             }
         }
     }
