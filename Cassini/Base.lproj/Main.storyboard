@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,18 +92,27 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svo-tL-O9C">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QDu-5e-1DW">
+                                <rect key="frame" x="168" y="315.5" width="37" height="37"/>
+                                <color key="color" red="0.024732073768973351" green="0.68561398983001709" blue="0.95191353559494019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="svo-tL-O9C" firstAttribute="bottom" secondItem="n1B-D9-oh3" secondAttribute="top" id="8qq-Vo-Iiw"/>
                             <constraint firstAttribute="trailing" secondItem="svo-tL-O9C" secondAttribute="trailing" id="EcI-dw-Pbs"/>
+                            <constraint firstItem="n1B-D9-oh3" firstAttribute="top" secondItem="QDu-5e-1DW" secondAttribute="bottom" constant="314.33999999999997" id="NQC-8p-zuM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QDu-5e-1DW" secondAttribute="trailing" constant="154.16999999999999" id="S0h-FJ-Ozj"/>
+                            <constraint firstItem="QDu-5e-1DW" firstAttribute="leading" secondItem="ftT-hf-oPt" secondAttribute="leadingMargin" constant="151.83000000000001" id="cBN-XU-y7r"/>
                             <constraint firstItem="svo-tL-O9C" firstAttribute="leading" secondItem="ftT-hf-oPt" secondAttribute="leading" id="ggq-c3-RCk"/>
                             <constraint firstItem="svo-tL-O9C" firstAttribute="top" secondItem="ftT-hf-oPt" secondAttribute="top" id="hU8-nI-gpi"/>
+                            <constraint firstItem="QDu-5e-1DW" firstAttribute="top" secondItem="7kd-wi-wmv" secondAttribute="bottom" constant="251.66" id="smH-HH-VXI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sw8-4j-AcP"/>
                     <connections>
                         <outlet property="scrollView" destination="svo-tL-O9C" id="ONx-4V-JV0"/>
+                        <outlet property="spinner" destination="QDu-5e-1DW" id="OT9-Zc-tQp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDF-QX-cyV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -37,16 +37,28 @@ class ImageViewController: UIViewController  {
     
     // MARK: Private Implementation
     
+    // Put this ActivityIndicatorView via Storyboard, ajusted to be at the
+    // same level in the hierarhy as ImageView but below it to be visible
+    // on the stck of views
+    // In Atribute Inspector>Behaviour Animation we set is off
+    // so it wont animate beore we create a Tread (DispatchQueue.global.asyn)
+    // Also added New constrains to have it in between
+    //
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     private func fetchURL() {
         // we use let-url because imgeURL is Optional
         if let url = imageURL {
+            
+            // Aug21/17 -1
+            spinner.startAnimating()
             
             // [weak self] is to break cycle, elf (ImageView Controller is captured inside the closure so
             // it need to be weak
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContent = try? Data(contentsOf: url)
                 // we are using let-imageData because urlContent is Data?
-                // url == self?.imageURL to check that we are not coming with new self?.imageURL while url is captured by closure 
+                // url == self?.imageURL to check that we are not coming with new self?.imageURL while url is captured by closure
                 if let  imageData = urlContent, url == self?.imageURL {
                     
                     // UI has to be on the main queue
@@ -120,6 +132,10 @@ class ImageViewController: UIViewController  {
             // and there might be a case when scrollView is nil and we need to do Optional chaining
             // To remember: any time we are accessing outlets that can be called during prepare, we have to use Optinal chaning
             scrollView?.contentSize = imageView.frame.size
+            
+            //Aug 21/17 -2  we stop any time we set the new image
+            // we use Optional chaining so when we have  spiiner == nil during prepare  the app would crash
+            spinner?.stopAnimating()
         }
     }
     
